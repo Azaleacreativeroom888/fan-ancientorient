@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>砂上譜 SAJOUFU ｜ 古代オリエント史ノート</title>
+<meta name="description" content="古代オリエント史ノート「砂上譜」。エジプト・メソポタミア・ペルシア・レヴァントをめぐる、粘土板と石碑の記憶を辿るファンサイト。">
+<meta name="robots" content="noai, noimageai">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#bdb76b;
+    --sand-deep:#a29c56;
+    --sand-pale:#cfc985;
+    --papyrus:#f6f1dc;
+    --papyrus-dim:#e8e0c2;
+    --ink:#2a2211;
+    --ink-soft:#4f4324;
+    --clay:#8a3f1e;
+    --clay-light:#b5602f;
+    --lapis:#1f3f5c;
+    --lapis-light:#3a6690;
+    --line:rgba(42,34,17,0.28);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--sand);
+    color:var(--ink);
+    font-family:"Noto Serif JP", serif;
+    font-weight:300;
+    line-height:1.9;
+    letter-spacing:0.02em;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--clay);color:var(--papyrus);}
+  a{color:inherit;text-decoration:none;}
+
+  .eyebrow{
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.32em;
+    color:var(--clay);
+    text-transform:uppercase;
+  }
+
+  .display{
+    font-family:"Cinzel", serif;
+    letter-spacing:0.06em;
+  }
+
+  /* ---------- register divider (signature motif) ---------- */
+  .register-rule{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    width:100%;
+    padding:0 6vw;
+  }
+  .register-rule::before,
+  .register-rule::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent);
+  }
+  .register-rule .wedge-row{
+    display:flex;
+    gap:6px;
+    flex-shrink:0;
+  }
+  .register-rule .wedge{
+    width:0; height:0;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+    border-top:9px solid var(--clay);
+    opacity:0.75;
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(189,183,107,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px;
+    margin:0 auto;
+    padding:18px 6vw;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+  }
+  .brand{display:flex;flex-direction:column;line-height:1.1;}
+  .brand .ja{
+    font-family:"Noto Serif JP", serif;
+    font-size:1.25rem;
+    font-weight:700;
+    color:var(--ink);
+    letter-spacing:0.1em;
+  }
+  .brand .en{
+    font-family:"Cinzel", serif;
+    font-size:0.62rem;
+    letter-spacing:0.34em;
+    color:var(--clay);
+    margin-top:4px;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:clamp(16px, 3vw, 40px);
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.86rem;
+    letter-spacing:0.08em;
+  }
+  nav a{
+    position:relative;
+    padding:6px 2px;
+    color:var(--ink-soft);
+    transition:color 0.25s ease;
+  }
+  nav a:hover, nav a:focus-visible{color:var(--ink);}
+  nav a::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:1px;
+    background:var(--clay);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform 0.3s ease;
+  }
+  nav a:hover::after, nav a:focus-visible::after{transform:scaleX(1);}
+  nav a.current{color:var(--clay);font-weight:600;}
+  nav a.current::after{transform:scaleX(1);}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding-top:clamp(28px, 5vw, 56px);overflow:hidden;}
+  .frieze-wrap{width:100%;line-height:0;}
+  .frieze-wrap svg{width:100%;height:auto;display:block;}
+  .hero-text{
+    max-width:900px;
+    margin:0 auto;
+    padding:clamp(36px, 6vw, 64px) 6vw clamp(48px, 7vw, 80px);
+    text-align:center;
+  }
+  .hero-text .eyebrow{display:block;margin-bottom:22px;}
+  .hero-text h1{
+    font-size:clamp(2.6rem, 7vw, 4.4rem);
+    font-weight:700;
+    color:var(--ink);
+    letter-spacing:0.14em;
+  }
+  .hero-text .sub{
+    margin-top:14px;
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.98rem;
+    letter-spacing:0.16em;
+    color:var(--ink-soft);
+  }
+  .hero-text p.lede{
+    margin:30px auto 0;
+    max-width:560px;
+    font-size:1.02rem;
+    color:var(--ink);
+    font-weight:300;
+  }
+
+  section{padding:clamp(50px, 7vw, 90px) 6vw;}
+  .section-inner{max-width:1180px;margin:0 auto;}
+  .section-head{text-align:center;margin-bottom:clamp(36px, 5vw, 56px);}
+  .section-head .eyebrow{display:block;margin-bottom:12px;}
+  .section-head h2{
+    font-family:"Noto Serif JP", serif;
+    font-weight:700;
+    font-size:clamp(1.5rem, 3vw, 2rem);
+    color:var(--ink);
+    letter-spacing:0.08em;
+  }
+
+  /* ---------- regions ---------- */
+  .regions{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .region-card{
+    background:var(--papyrus);
+    padding:34px 22px 30px;
+    text-align:center;
+    transition:background 0.3s ease;
+  }
+  .region-card:hover{background:var(--papyrus-dim);}
+  .region-card .icon{width:52px;height:52px;margin:0 auto 18px;color:var(--lapis);}
+  .region-card .icon svg{width:100%;height:100%;}
+  .region-card h3{
+    font-family:"Noto Serif JP", serif;
+    font-size:1.05rem;
+    font-weight:700;
+    color:var(--ink);
+    letter-spacing:0.06em;
+  }
+  .region-card .en{
+    display:block;margin-top:6px;
+    font-family:"Cinzel", serif;
+    font-size:0.62rem;
+    letter-spacing:0.24em;
+    color:var(--clay);
+  }
+  .region-card p{margin-top:14px;font-size:0.86rem;color:var(--ink-soft);line-height:1.8;}
+
+  /* ---------- timeline strip ---------- */
+  .timeline{position:relative;overflow-x:auto;padding-bottom:14px;scrollbar-width:thin;scrollbar-color:var(--clay) transparent;}
+  .timeline-track{position:relative;display:flex;min-width:900px;padding-top:10px;}
+  .timeline-track::before{content:"";position:absolute;top:9px;left:0;right:0;height:1px;background:var(--ink-soft);opacity:0.4;}
+  .era{flex:1;position:relative;padding:26px 16px 0;text-align:center;}
+  .era::before{
+    content:"";position:absolute;top:5px;left:50%;
+    width:9px;height:9px;
+    transform:translateX(-50%) rotate(45deg);
+    background:var(--clay);
+    box-shadow:0 0 0 3px var(--sand);
+  }
+  .era .yr{font-family:"Cinzel", serif;font-size:0.78rem;letter-spacing:0.08em;color:var(--clay);}
+  .era h4{margin-top:8px;font-family:"Noto Serif JP", serif;font-size:0.98rem;font-weight:700;color:var(--ink);}
+  .era p{margin-top:6px;font-size:0.8rem;color:var(--ink-soft);}
+
+  /* ---------- about + cards ---------- */
+  .split{display:grid;grid-template-columns:1.1fr 0.9fr;gap:clamp(30px, 6vw, 70px);align-items:start;}
+  .split h2{
+    font-family:"Noto Serif JP", serif;
+    font-size:clamp(1.4rem, 2.6vw, 1.9rem);
+    font-weight:700;color:var(--ink);letter-spacing:0.06em;margin-bottom:20px;
+  }
+  .split p{color:var(--ink-soft);font-size:0.98rem;}
+  .split p + p{margin-top:16px;}
+
+  .card-list{display:flex;flex-direction:column;gap:16px;}
+  .link-card{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:20px 24px;
+    background:var(--papyrus);
+    border:1px solid var(--line);
+    transition:border-color 0.25s ease, transform 0.25s ease;
+  }
+  .link-card:hover{border-color:var(--clay);transform:translateX(4px);}
+  .link-card .t{font-family:"Noto Serif JP", serif;font-size:1.02rem;font-weight:700;color:var(--ink);}
+  .link-card .d{display:block;margin-top:4px;font-family:"Noto Sans JP", sans-serif;font-size:0.78rem;letter-spacing:0.06em;color:var(--ink-soft);}
+  .link-card .arrow{font-family:"Cinzel", serif;color:var(--clay);font-size:1.1rem;flex-shrink:0;transition:transform 0.25s ease;}
+  .link-card:hover .arrow{transform:translateX(4px);}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--sand-deep);border-top:1px solid var(--line);padding:56px 6vw 40px;}
+  .footer-inner{max-width:1180px;margin:0 auto;}
+  .footer-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;margin-bottom:40px;}
+  .footer-grid h5{
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.72rem;letter-spacing:0.24em;
+    color:var(--clay);text-transform:uppercase;margin-bottom:16px;
+  }
+  form.contact{display:flex;flex-direction:column;gap:12px;max-width:420px;}
+  form.contact input,
+  form.contact textarea{
+    background:var(--papyrus);
+    border:1px solid var(--line);
+    color:var(--ink);
+    font-family:"Noto Serif JP", serif;
+    font-size:0.9rem;
+    padding:11px 14px;
+    resize:vertical;
+  }
+  form.contact input::placeholder,
+  form.contact textarea::placeholder{color:var(--ink-soft);opacity:0.6;}
+  form.contact input:focus,
+  form.contact textarea:focus{outline:none;border-color:var(--clay);}
+  form.contact button{
+    align-self:flex-start;margin-top:4px;
+    background:transparent;
+    border:1px solid var(--clay);
+    color:var(--ink);
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.82rem;letter-spacing:0.12em;
+    padding:10px 26px;cursor:pointer;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  form.contact button:hover{background:var(--clay);color:var(--papyrus);}
+
+  .social-list{display:flex;flex-direction:column;gap:10px;font-size:0.9rem;}
+  .social-list a{color:var(--ink-soft);transition:color 0.2s ease;}
+  .social-list a:hover{color:var(--clay);}
+
+  .footer-bottom{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+    padding-top:24px;border-top:1px solid var(--line);
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.72rem;letter-spacing:0.04em;
+    color:var(--ink-soft);opacity:0.85;
+  }
+
+  @media (max-width:820px){
+    nav ul{display:none;}
+    .regions{grid-template-columns:repeat(2, 1fr);}
+    .split, .footer-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="ja">砂上譜</span>
+      <span class="en">SAJOUFU</span>
+    </div>
+    <nav aria-label="サイト内ナビゲーション">
+      <ul>
+        <li><a href="index.html" class="current">index</a></li>
+        <li><a href="blog.html">blog</a></li>
+        <li><a href="gallery.html">gallery</a></li>
+        <li><a href="about.html">about</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="frieze-wrap" aria-hidden="true">
+      <svg viewBox="0 0 1400 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+        <rect x="0" y="0" width="1400" height="380" fill="#bdb76b"/>
+        <!-- sun disk -->
+        <circle cx="700" cy="150" r="86" fill="none" stroke="#8a3f1e" stroke-width="2" opacity="0.55"/>
+        <circle cx="700" cy="150" r="58" fill="#8a3f1e" opacity="0.16"/>
+        <circle cx="700" cy="150" r="30" fill="#8a3f1e" opacity="0.55"/>
+        <!-- ground line -->
+        <line x1="0" y1="300" x2="1400" y2="300" stroke="#4f4324" stroke-width="1" opacity="0.5"/>
+
+        <!-- left: ziggurat -->
+        <g opacity="0.9" fill="#1f3f5c">
+          <rect x="60" y="255" width="220" height="16" />
+          <rect x="80" y="230" width="180" height="16" />
+          <rect x="100" y="205" width="140" height="16" />
+          <rect x="120" y="180" width="100" height="16" />
+          <rect x="140" y="158" width="60" height="14" />
+        </g>
+        <!-- small palm near ziggurat -->
+        <g stroke="#8a3f1e" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.9">
+          <line x1="330" y1="300" x2="330" y2="235"/>
+          <path d="M330 235 C 300 220, 285 225, 270 210"/>
+          <path d="M330 235 C 360 220, 375 225, 392 208"/>
+          <path d="M330 235 C 315 210, 315 195, 305 178"/>
+          <path d="M330 235 C 345 210, 345 195, 358 180"/>
+        </g>
+
+        <!-- pyramids, giza trio -->
+        <polygon points="560,300 700,120 840,300" fill="#2a2211" opacity="0.88"/>
+        <polygon points="560,300 700,120 700,300" fill="#4f4324" opacity="0.55"/>
+        <polygon points="800,300 905,165 1010,300" fill="#2a2211" opacity="0.75"/>
+        <polygon points="800,300 905,165 905,300" fill="#4f4324" opacity="0.45"/>
+        <polygon points="960,300 1030,205 1100,300" fill="#2a2211" opacity="0.6"/>
+
+        <!-- obelisk right -->
+        <g fill="#8a3f1e" opacity="0.9">
+          <polygon points="1190,300 1200,120 1210,120 1220,300"/>
+          <polygon points="1197,120 1200,105 1213,120"/>
+        </g>
+        <!-- birds -->
+        <g stroke="#4f4324" stroke-width="2.5" fill="none" opacity="0.7" stroke-linecap="round">
+          <path d="M460 90 q10 -12 20 0 q10 -12 20 0"/>
+          <path d="M520 70 q8 -10 16 0 q8 -10 16 0"/>
+        </g>
+
+        <!-- cuneiform wedge row along base -->
+        <g fill="#4f4324" opacity="0.5">
+          <polygon points="0,320 8,300 16,320"/>
+          <polygon points="26,320 34,300 42,320"/>
+          <polygon points="52,320 60,300 68,320"/>
+          <polygon points="1332,320 1340,300 1348,320"/>
+          <polygon points="1358,320 1366,300 1374,320"/>
+          <polygon points="1384,320 1392,300 1400,320"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-text">
+      <span class="eyebrow">Ancient Orient Notes</span>
+      <h1 class="display">砂上譜</h1>
+      <p class="sub">古代オリエント史ノート — SAJOUFU</p>
+      <p class="lede">
+        五千年前、二つの大河のほとりに文字が生まれ、砂漠の彼方に石が積まれた。
+        粘土板に刻まれた楔形文字から、王家の谷に眠る石棺まで——
+        古代オリエントの記憶を、自分なりの歩幅でたどっていくノートです。
+      </p>
+    </div>
+  </div>
+
+  <div class="register-rule" aria-hidden="true">
+    <div class="wedge-row">
+      <span class="wedge"></span><span class="wedge"></span><span class="wedge"></span>
+    </div>
+  </div>
+
+  <section id="regions">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="eyebrow">Regions</span>
+        <h2>四つの地域</h2>
+      </div>
+      <div class="regions">
+        <div class="region-card">
+          <div class="icon">
+            <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round">
+              <polygon points="30,10 52,48 8,48"/>
+              <line x1="30" y1="10" x2="30" y2="48"/>
+            </svg>
+          </div>
+          <h3>エジプト</h3>
+          <span class="en">EGYPT</span>
+          <p>ナイルの氾濫が育んだ王権と来世観。ピラミッドとヒエログリフの世界。</p>
+        </div>
+        <div class="region-card">
+          <div class="icon">
+            <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round">
+              <rect x="10" y="40" width="40" height="8"/>
+              <rect x="14" y="30" width="32" height="8"/>
+              <rect x="18" y="20" width="24" height="8"/>
+              <rect x="22" y="12" width="16" height="6"/>
+            </svg>
+          </div>
+          <h3>メソポタミア</h3>
+          <span class="en">MESOPOTAMIA</span>
+          <p>チグリス・ユーフラテスの間に興った都市国家。楔形文字と法典の起源。</p>
+        </div>
+        <div class="region-card">
+          <div class="icon">
+            <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round">
+              <circle cx="30" cy="30" r="10"/>
+              <line x1="30" y1="8" x2="30" y2="16"/>
+              <line x1="30" y1="44" x2="30" y2="52"/>
+              <line x1="8" y1="30" x2="16" y2="30"/>
+              <line x1="44" y1="30" x2="52" y2="30"/>
+              <line x1="14" y1="14" x2="20" y2="20"/>
+              <line x1="40" y1="40" x2="46" y2="46"/>
+              <line x1="46" y1="14" x2="40" y2="20"/>
+              <line x1="20" y1="40" x2="14" y2="46"/>
+            </svg>
+          </div>
+          <h3>ペルシア</h3>
+          <span class="en">PERSIA</span>
+          <p>アケメネス朝が結んだ広大な帝国と王の道。多民族統治の先駆け。</p>
+        </div>
+        <div class="region-card">
+          <div class="icon">
+            <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round">
+              <path d="M12 44 Q12 20 30 14 Q48 20 48 44"/>
+              <line x1="12" y1="44" x2="48" y2="44"/>
+              <line x1="24" y1="44" x2="24" y2="26"/>
+              <line x1="36" y1="44" x2="36" y2="26"/>
+            </svg>
+          </div>
+          <h3>レヴァント</h3>
+          <span class="en">LEVANT</span>
+          <p>地中海東岸、交易と文字の交差点。フェニキア文字が広がった土地。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="register-rule" aria-hidden="true">
+    <div class="wedge-row">
+      <span class="wedge"></span><span class="wedge"></span><span class="wedge"></span>
+    </div>
+  </div>
+
+  <section id="timeline">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="eyebrow">Timeline</span>
+        <h2>年代記</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-track">
+          <div class="era">
+            <span class="yr">BC 3100</span>
+            <h4>統一と都市</h4>
+            <p>エジプト初期王朝／シュメール都市国家</p>
+          </div>
+          <div class="era">
+            <span class="yr">BC 2560</span>
+            <h4>大ピラミッド</h4>
+            <p>古王国クフ王／ギザの造営</p>
+          </div>
+          <div class="era">
+            <span class="yr">BC 1792</span>
+            <h4>ハンムラビ法典</h4>
+            <p>バビロン第一王朝の隆盛</p>
+          </div>
+          <div class="era">
+            <span class="yr">BC 1274</span>
+            <h4>カデシュの戦い</h4>
+            <p>エジプト新王国とヒッタイトの激突</p>
+          </div>
+          <div class="era">
+            <span class="yr">BC 539</span>
+            <h4>バビロン陥落</h4>
+            <p>アケメネス朝ペルシアの台頭</p>
+          </div>
+          <div class="era">
+            <span class="yr">BC 330</span>
+            <h4>アケメネス朝滅亡</h4>
+            <p>アレクサンドロス大王の東征</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="register-rule" aria-hidden="true">
+    <div class="wedge-row">
+      <span class="wedge"></span><span class="wedge"></span><span class="wedge"></span>
+    </div>
+  </div>
+
+  <section id="about-preview">
+    <div class="section-inner split">
+      <div>
+        <span class="eyebrow">About this notebook</span>
+        <h2>なぜ、いま古代オリエントなのか</h2>
+        <p>
+          文字も、法も、暦も、都市も——多くの「はじまり」がこの地域に眠っています。
+          教科書の年表を追うだけでは見えてこない、王たちの野心や職人の手仕事、
+          名もなき人々の暮らしの手触りを、自分の言葉で書き留めていきたいと思っています。
+        </p>
+        <p>
+          専門的な研究ノートというより、気になった遺跡や史料に立ち止まりながら
+          歩く「史跡巡りの記録」に近いものです。誤りや思い込みも含めて、
+          更新しながら育てていくサイトです。
+        </p>
+      </div>
+      <div class="card-list">
+        <a class="link-card" href="blog.html">
+          <span>
+            <span class="t">日誌</span>
+            <span class="d">読んだ本・訪れた展示・気づきの記録</span>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="link-card" href="gallery.html">
+          <span>
+            <span class="t">図録</span>
+            <span class="d">遺跡・遺物・地図のスケッチと写真</span>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+        <a class="link-card" href="about.html">
+          <span>
+            <span class="t">このサイトについて</span>
+            <span class="d">運営者情報・参考文献・お問い合わせ</span>
+          </span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h5>Contact</h5>
+        <form class="contact" action="https://formspree.io/f/maqvpvoz" method="POST">
+          <input type="text" name="name" placeholder="お名前" required>
+          <input type="email" name="email" placeholder="メールアドレス" required>
+          <textarea name="message" rows="4" placeholder="メッセージ" required></textarea>
+          <button type="submit">送信する</button>
+        </form>
+      </div>
+      <div>
+        <h5>Links</h5>
+        <div class="social-list">
+          <a href="#">Pixiv</a>
+          <a href="#">Bluesky</a>
+          <a href="#">Kakuyomu</a>
+          <a href="#">YouTube — リリポピ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 砂上譜 SAJOUFU — Azalea Creative Room</span>
+      <span>本サイトの文章・図版は生成AIの学習利用を禁じます。 / No AI training on this content.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
