@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>古代エジプトに関わりのある人物一覧 ｜ 砂上譜 SAJOUFU</title>
+<meta name="description" content="古代エジプトに関わりのある人物を、名前・没年・解説でまとめた一覧。砂上譜 SAJOUFU の特集ページ。">
+<meta name="robots" content="noai, noimageai">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#bdb76b;
+    --sand-deep:#a29c56;
+    --sand-pale:#cfc985;
+    --papyrus:#f6f1dc;
+    --papyrus-dim:#e8e0c2;
+    --ink:#2a2211;
+    --ink-soft:#4f4324;
+    --clay:#8a3f1e;
+    --clay-light:#b5602f;
+    --lapis:#1f3f5c;
+    --lapis-light:#3a6690;
+    --line:rgba(42,34,17,0.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scroll-padding-top:90px;}
+  body{
+    background:var(--sand);
+    color:var(--ink);
+    font-family:"Noto Serif JP", serif;
+    font-weight:300;
+    line-height:1.9;
+    letter-spacing:0.02em;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--clay);color:var(--papyrus);}
+  a{color:inherit;text-decoration:none;}
+  .eyebrow{
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.72rem;letter-spacing:0.32em;
+    color:var(--clay);text-transform:uppercase;
+  }
+  .display{font-family:"Cinzel", serif;letter-spacing:0.06em;}
+
+  .register-rule{display:flex;align-items:center;gap:14px;width:100%;padding:0 6vw;}
+  .register-rule::before,
+  .register-rule::after{
+    content:"";flex:1;height:1px;
+    background:linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent);
+  }
+  .register-rule .wedge-row{display:flex;gap:6px;flex-shrink:0;}
+  .register-rule .wedge{
+    width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;
+    border-top:9px solid var(--clay);opacity:0.75;
+  }
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(189,183,107,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:18px 6vw;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand{display:flex;flex-direction:column;line-height:1.1;}
+  .brand .ja{font-family:"Noto Serif JP", serif;font-size:1.25rem;font-weight:700;color:var(--ink);letter-spacing:0.1em;}
+  .brand .en{font-family:"Cinzel", serif;font-size:0.62rem;letter-spacing:0.34em;color:var(--clay);margin-top:4px;}
+  nav ul{list-style:none;display:flex;gap:clamp(16px, 3vw, 40px);font-family:"Noto Sans JP", sans-serif;font-size:0.86rem;letter-spacing:0.08em;}
+  nav a{position:relative;padding:6px 2px;color:var(--ink-soft);transition:color 0.25s ease;}
+  nav a:hover, nav a:focus-visible{color:var(--ink);}
+  nav a::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--clay);
+    transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;
+  }
+  nav a:hover::after, nav a:focus-visible::after{transform:scaleX(1);}
+  nav a.current{color:var(--clay);font-weight:600;}
+  nav a.current::after{transform:scaleX(1);}
+
+  .page-hero{
+    max-width:900px;margin:0 auto;
+    padding:clamp(48px, 7vw, 76px) 6vw clamp(30px, 5vw, 44px);
+    text-align:center;
+  }
+  .page-hero .eyebrow{display:block;margin-bottom:18px;}
+  .page-hero h1{
+    font-family:"Noto Serif JP", serif;
+    font-size:clamp(1.7rem, 4.4vw, 2.7rem);
+    font-weight:700;color:var(--ink);letter-spacing:0.08em;line-height:1.5;
+  }
+  .page-hero p{margin-top:16px;color:var(--ink-soft);font-size:0.95rem;}
+
+  .era-chips{
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+    max-width:900px;margin:0 auto;padding:0 6vw 12px;
+  }
+  .era-chips a{
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.76rem;letter-spacing:0.08em;
+    color:var(--ink-soft);background:var(--papyrus);
+    border:1px solid var(--line);padding:8px 16px;
+    transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .era-chips a:hover{background:var(--clay);color:var(--papyrus);border-color:var(--clay);}
+
+  section{padding:clamp(34px, 5vw, 56px) 6vw;}
+  .section-inner{max-width:1000px;margin:0 auto;}
+
+  .era-label{
+    display:flex;align-items:baseline;gap:16px;
+    margin-bottom:18px;
+  }
+  .era-label h2{
+    font-family:"Noto Serif JP", serif;
+    font-size:clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight:700;color:var(--ink);letter-spacing:0.06em;
+  }
+  .era-label .span{
+    font-family:"Cinzel", serif;
+    font-size:0.74rem;letter-spacing:0.1em;color:var(--clay);
+  }
+  .era-label::after{content:"";flex:1;height:1px;background:var(--line);align-self:center;}
+
+  .person-table{
+    background:var(--papyrus);
+    border:1px solid var(--line);
+  }
+  .person-head,
+  .person-row{
+    display:grid;
+    grid-template-columns:210px 170px 1fr;
+    gap:0;
+  }
+  .person-head{
+    background:var(--sand-pale);
+    border-bottom:1px solid var(--line);
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.72rem;letter-spacing:0.22em;color:var(--clay);
+  }
+  .person-head div{padding:10px 20px;}
+  .person-row{
+    border-bottom:1px solid var(--line);
+    transition:background 0.2s ease;
+  }
+  .person-row:last-child{border-bottom:none;}
+  .person-row:hover{background:var(--papyrus-dim);}
+  .person-row .name{
+    padding:16px 20px;
+    font-family:"Noto Serif JP", serif;
+    font-size:1rem;font-weight:700;color:var(--ink);line-height:1.5;
+  }
+  .person-row .name small{
+    display:block;margin-top:2px;
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.68rem;font-weight:400;letter-spacing:0.06em;color:var(--ink-soft);
+  }
+  .person-row .death{
+    padding:16px 20px;
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.86rem;color:var(--lapis);line-height:1.6;
+  }
+  .person-row .desc{
+    padding:16px 20px;
+    font-size:0.88rem;color:var(--ink-soft);line-height:1.85;
+  }
+
+  .note-box{
+    margin:10px auto 0;max-width:1000px;
+    padding:20px 24px;
+    border:1px dashed var(--line);
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.78rem;letter-spacing:0.04em;line-height:1.9;
+    color:var(--ink-soft);
+  }
+
+  .back-link{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:30px;
+    font-family:"Noto Sans JP", sans-serif;
+    font-size:0.8rem;letter-spacing:0.1em;color:var(--ink-soft);
+    padding:9px 18px;border:1px solid var(--line);
+    transition:color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+  .back-link:hover{color:var(--clay);border-color:var(--clay);background:var(--papyrus);}
+
+  footer{background:var(--sand-deep);border-top:1px solid var(--line);padding:56px 6vw 40px;}
+  .footer-inner{max-width:1180px;margin:0 auto;}
+  .footer-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;margin-bottom:40px;}
+  .footer-grid h5{font-family:"Noto Sans JP", sans-serif;font-size:0.72rem;letter-spacing:0.24em;color:var(--clay);text-transform:uppercase;margin-bottom:16px;}
+  form.contact{display:flex;flex-direction:column;gap:12px;max-width:420px;}
+  form.contact input,
+  form.contact textarea{
+    background:var(--papyrus);border:1px solid var(--line);color:var(--ink);
+    font-family:"Noto Serif JP", serif;font-size:0.9rem;padding:11px 14px;resize:vertical;
+  }
+  form.contact input::placeholder,
+  form.contact textarea::placeholder{color:var(--ink-soft);opacity:0.6;}
+  form.contact input:focus,
+  form.contact textarea:focus{outline:none;border-color:var(--clay);}
+  form.contact button{
+    align-self:flex-start;margin-top:4px;background:transparent;border:1px solid var(--clay);color:var(--ink);
+    font-family:"Noto Sans JP", sans-serif;font-size:0.82rem;letter-spacing:0.12em;padding:10px 26px;cursor:pointer;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+  form.contact button:hover{background:var(--clay);color:var(--papyrus);}
+  .social-list{display:flex;flex-direction:column;gap:10px;font-size:0.9rem;}
+  .social-list a{color:var(--ink-soft);transition:color 0.2s ease;}
+  .social-list a:hover{color:var(--clay);}
+  .footer-bottom{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;
+    border-top:1px solid var(--line);font-family:"Noto Sans JP", sans-serif;
+    font-size:0.72rem;letter-spacing:0.04em;color:var(--ink-soft);opacity:0.85;
+  }
+
+  @media (max-width:820px){
+    nav ul{display:none;}
+    .footer-grid{grid-template-columns:1fr;}
+    .person-head{display:none;}
+    .person-row{grid-template-columns:1fr;padding:14px 0;}
+    .person-row .name{padding:0 20px;}
+    .person-row .death{padding:2px 20px 0;font-size:0.8rem;}
+    .person-row .death::before{content:"没年　";color:var(--clay);letter-spacing:0.1em;}
+    .person-row .desc{padding:8px 20px 0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="ja">砂上譜</span>
+      <span class="en">SAJOUFU</span>
+    </div>
+    <nav aria-label="サイト内ナビゲーション">
+      <ul>
+        <li><a href="index.html">index</a></li>
+        <li><a href="blog.html">blog</a></li>
+        <li><a href="gallery.html" class="current">gallery</a></li>
+        <li><a href="about.html">about</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <span class="eyebrow">Report 01</span>
+    <h1>古代エジプトに<wbr>関わりのある人物一覧</h1>
+    <p>名前・没年・解説の3項目で、時代順にまとめました。</p>
+  </div>
+
+  <nav class="era-chips" aria-label="時代で移動">
+    <a href="#old">初期王朝・古王国</a>
+    <a href="#middle">中王国</a>
+    <a href="#new">新王国</a>
+    <a href="#late">末期王朝</a>
+    <a href="#ptolemaic">プトレマイオス朝・ローマ</a>
+    <a href="#scholars">記録者・研究者</a>
+  </nav>
+
+  <div class="register-rule" aria-hidden="true">
+    <div class="wedge-row"><span class="wedge"></span><span class="wedge"></span><span class="wedge"></span></div>
+  </div>
+
+  <section id="old">
+    <div class="section-inner">
+      <div class="era-label"><h2>初期王朝・古王国時代</h2><span class="span">c.3100 – 2184 BC</span></div>
+      <div class="person-table">
+        <div class="person-head"><div>① 名前</div><div>② 没年</div><div>③ 解説</div></div>
+        <div class="person-row">
+          <div class="name">ナルメル<small>Narmer</small></div>
+          <div class="death">不詳（紀元前3100年頃の人物）</div>
+          <div class="desc">「ナルメルのパレット」で知られる初期の王。上下エジプトの統一に深く関わったとされ、伝承上のメネスと同一視する説もある。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ジェセル王<small>Djoser</small></div>
+          <div class="death">紀元前2650年頃</div>
+          <div class="desc">第3王朝の王。サッカラに石造の階段ピラミッドを築いた。設計は宰相イムホテプによるものと伝えられる。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">イムホテプ<small>Imhotep</small></div>
+          <div class="death">不詳</div>
+          <div class="desc">ジェセル王に仕えた宰相・建築家とされる人物。後世には知恵や医術の神として崇められた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">スネフェル王<small>Sneferu</small></div>
+          <div class="death">紀元前2589年頃</div>
+          <div class="desc">第4王朝の初代の王。ダハシュールの屈折ピラミッドと赤のピラミッドを築き、ピラミッドの形が完成へ向かう過程を示した。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">クフ王<small>Khufu</small></div>
+          <div class="death">紀元前2566年頃</div>
+          <div class="desc">第4王朝の王。ギザの大ピラミッドを造営したことで知られる、古代エジプトを代表するファラオの一人。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">カフラー王<small>Khafre</small></div>
+          <div class="death">紀元前2532年頃</div>
+          <div class="desc">クフ王の子とされる第4王朝の王。ギザの第二ピラミッドを築いた。大スフィンクスとの結びつきが語られるが、諸説ある。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">メンカウラー王<small>Menkaure</small></div>
+          <div class="death">紀元前2503年頃</div>
+          <div class="desc">第4王朝の王。ギザの三大ピラミッドのうち最も小さい第三ピラミッドを築いた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ペピ2世<small>Pepi II</small></div>
+          <div class="death">紀元前2184年頃</div>
+          <div class="desc">第6王朝の王。非常に長い在位が伝わる。その後、古王国は衰退し、中央権力が弱まっていった。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="register-rule" aria-hidden="true">
+    <div class="wedge-row"><span class="wedge"></span><span class="wedge"></span><span class="wedge"></span></div>
+  </div>
+
+  <section id="middle">
+    <div class="section-inner">
+      <div class="era-label"><h2>中王国時代</h2><span class="span">c.2055 – 1650 BC</span></div>
+      <div class="person-table">
+        <div class="person-head"><div>① 名前</div><div>② 没年</div><div>③ 解説</div></div>
+        <div class="person-row">
+          <div class="name">メンチュヘテプ2世<small>Mentuhotep II</small></div>
+          <div class="death">紀元前2004年頃</div>
+          <div class="desc">第11王朝の王。分裂していたエジプトを再統一し、中王国時代の幕を開いた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">センウセレト3世<small>Senusret III</small></div>
+          <div class="death">紀元前1839年頃</div>
+          <div class="desc">第12王朝の王。南のヌビアへ遠征を重ね、国境に要塞を整えた。地方有力者の力を抑え、王権を強めたとされる。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="register-rule" aria-hidden="true">
+    <div class="wedge-row"><span class="wedge"></span><span class="wedge"></span><span class="wedge"></span></div>
+  </div>
+
+  <section id="new">
+    <div class="section-inner">
+      <div class="era-label"><h2>新王国時代</h2><span class="span">c.1550 – 1070 BC</span></div>
+      <div class="person-table">
+        <div class="person-head"><div>① 名前</div><div>② 没年</div><div>③ 解説</div></div>
+        <div class="person-row">
+          <div class="name">ハトシェプスト<small>Hatshepsut</small></div>
+          <div class="death">紀元前1458年頃</div>
+          <div class="desc">第18王朝の女性ファラオ。プント国への交易遠征を行い、デイル・エル＝バハリに壮麗な葬祭神殿を築いた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">トトメス3世<small>Thutmose III</small></div>
+          <div class="death">紀元前1425年頃</div>
+          <div class="desc">第18王朝の王。シリア方面へ度重なる遠征を行い、エジプトの版図を最大規模に広げた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">アメンホテプ3世<small>Amenhotep III</small></div>
+          <div class="death">紀元前1353年頃</div>
+          <div class="desc">第18王朝の王。外交と繁栄の時代を築き、ルクソール神殿など大規模な建築事業を進めた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">アクエンアテン<small>Akhenaten</small></div>
+          <div class="death">紀元前1336年頃</div>
+          <div class="desc">アメンホテプ4世として即位し、太陽円盤アテンを中心とする信仰を推し進めた王。アマルナに新都を築いた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ネフェルティティ<small>Nefertiti</small></div>
+          <div class="death">不詳</div>
+          <div class="desc">アクエンアテンの王妃。ベルリンにある彩色された胸像で広く知られる。晩年の消息ははっきりしない。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ツタンカーメン<small>Tutankhamun</small></div>
+          <div class="death">紀元前1327年頃</div>
+          <div class="desc">第18王朝の若い王。アテン信仰から旧来の信仰へ戻る時期に在位した。1922年にほぼ未盗掘の墓が発見された。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ホルエムヘブ<small>Horemheb</small></div>
+          <div class="death">紀元前1292年頃</div>
+          <div class="desc">第18王朝最後の王。将軍から王位に就き、アマルナ時代の混乱を収めて国内の秩序を立て直した。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">セティ1世<small>Seti I</small></div>
+          <div class="death">紀元前1279年頃</div>
+          <div class="desc">第19王朝の王。アビドスの神殿や、王家の谷にある精緻なレリーフの墓で知られる。ラムセス2世の父。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ラムセス2世<small>Ramesses II</small></div>
+          <div class="death">紀元前1213年頃</div>
+          <div class="desc">第19王朝の王。約66年の長い在位の間に、アブ・シンベル神殿などを造営した。ヒッタイトとはカデシュで戦い、のちに和平条約を結んだ。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ネフェルタリ<small>Nefertari</small></div>
+          <div class="death">紀元前1255年頃</div>
+          <div class="desc">ラムセス2世の王妃。アブ・シンベルの小神殿は彼女に捧げられた。墓の壁画の美しさでも有名。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ラムセス3世<small>Ramesses III</small></div>
+          <div class="death">紀元前1155年頃</div>
+          <div class="desc">第20王朝の王。「海の民」の侵攻を退けたことで知られる。メディネト・ハブに葬祭神殿を築いた。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="register-rule" aria-hidden="true">
+    <div class="wedge-row"><span class="wedge"></span><span class="wedge"></span><span class="wedge"></span></div>
+  </div>
+
+  <section id="late">
+    <div class="section-inner">
+      <div class="era-label"><h2>末期王朝時代</h2><span class="span">c.747 – 332 BC</span></div>
+      <div class="person-table">
+        <div class="person-head"><div>① 名前</div><div>② 没年</div><div>③ 解説</div></div>
+        <div class="person-row">
+          <div class="name">タハルカ<small>Taharqa</small></div>
+          <div class="death">紀元前664年</div>
+          <div class="desc">南のクシュ（ヌビア）出身の第25王朝の王。台頭するアッシリアと戦ったが、のちにエジプトから退いた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">プサメティコス1世<small>Psamtik I</small></div>
+          <div class="death">紀元前610年</div>
+          <div class="desc">第26王朝の創始者。アッシリアの支配から離れ、エジプトを再び統一へ導いた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ネコ2世<small>Necho II</small></div>
+          <div class="death">紀元前595年</div>
+          <div class="desc">第26王朝の王。シリア方面へ軍を進めたが、カルケミシュの戦いで新バビロニアに敗れた。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="register-rule" aria-hidden="true">
+    <div class="wedge-row"><span class="wedge"></span><span class="wedge"></span><span class="wedge"></span></div>
+  </div>
+
+  <section id="ptolemaic">
+    <div class="section-inner">
+      <div class="era-label"><h2>プトレマイオス朝・ローマ時代</h2><span class="span">332 – 30 BC</span></div>
+      <div class="person-table">
+        <div class="person-head"><div>① 名前</div><div>② 没年</div><div>③ 解説</div></div>
+        <div class="person-row">
+          <div class="name">アレクサンドロス3世<small>Alexander the Great</small></div>
+          <div class="death">紀元前323年</div>
+          <div class="desc">マケドニアの王。紀元前332年にエジプトを征服し、地中海沿岸にアレクサンドリアを建設した。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">プトレマイオス1世<small>Ptolemy I</small></div>
+          <div class="death">紀元前283年頃</div>
+          <div class="desc">アレクサンドロスの部将。のちにエジプトの王となり、約300年続くプトレマイオス朝を開いた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ユリウス・カエサル<small>Julius Caesar</small></div>
+          <div class="death">紀元前44年</div>
+          <div class="desc">ローマの政治家・将軍。エジプトの王位争いに介入し、クレオパトラ7世を支援した。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">マルクス・アントニウス<small>Mark Antony</small></div>
+          <div class="death">紀元前30年</div>
+          <div class="desc">ローマの将軍。クレオパトラ7世と結び、オクタウィアヌスと争ったが敗れた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">クレオパトラ7世<small>Cleopatra VII</small></div>
+          <div class="death">紀元前30年</div>
+          <div class="desc">プトレマイオス朝最後の女王。その死後、エジプトはローマの支配下に入った。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="register-rule" aria-hidden="true">
+    <div class="wedge-row"><span class="wedge"></span><span class="wedge"></span><span class="wedge"></span></div>
+  </div>
+
+  <section id="scholars">
+    <div class="section-inner">
+      <div class="era-label"><h2>記録者・研究者</h2><span class="span">Historians &amp; Egyptologists</span></div>
+      <div class="person-table">
+        <div class="person-head"><div>① 名前</div><div>② 没年</div><div>③ 解説</div></div>
+        <div class="person-row">
+          <div class="name">ヘロドトス<small>Herodotus</small></div>
+          <div class="death">紀元前425年頃</div>
+          <div class="desc">ギリシアの歴史家。『歴史』の中でエジプトの風習や歴史にも触れており、古代の記録として読み継がれている。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">マネト<small>Manetho</small></div>
+          <div class="death">不詳</div>
+          <div class="desc">紀元前3世紀ごろに活動したエジプトの神官。王の系譜をまとめ、今に続く「王朝」による時代区分の元になった。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">シャンポリオン<small>J.-F. Champollion</small></div>
+          <div class="death">1832年</div>
+          <div class="desc">フランスの学者。ロゼッタ・ストーンなどを手がかりにヒエログリフの解読に成功し、1822年に成果を発表した。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">オーギュスト・マリエット<small>Auguste Mariette</small></div>
+          <div class="death">1881年</div>
+          <div class="desc">フランスのエジプト学者。エジプト考古局の初代責任者を務め、サッカラなどで発掘を進めた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">フリンダーズ・ピートリー<small>Flinders Petrie</small></div>
+          <div class="death">1942年</div>
+          <div class="desc">イギリスの考古学者。出土品を丁寧に記録する発掘の方法を重んじ、エジプト考古学の土台を築いた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">カーナヴォン卿<small>Lord Carnarvon</small></div>
+          <div class="death">1923年</div>
+          <div class="desc">イギリスの貴族。ツタンカーメン王墓の発掘を資金面で支えた。</div>
+        </div>
+        <div class="person-row">
+          <div class="name">ハワード・カーター<small>Howard Carter</small></div>
+          <div class="death">1939年</div>
+          <div class="desc">イギリスの考古学者。1922年、王家の谷でツタンカーメン王墓を発見した。</div>
+        </div>
+      </div>
+
+      <p class="note-box" style="margin-top:30px;">
+        ※ 古代の年代は研究者や資料によって数十年ほどの幅があり、「頃」は概数を表します。解説は要点のみで、学説が分かれる事柄も含まれます。
+      </p>
+
+      <a class="back-link" href="gallery.html">← 図録に戻る</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h5>Contact</h5>
+        <form class="contact" action="https://formspree.io/f/maqvpvoz" method="POST">
+          <input type="text" name="name" placeholder="お名前" required>
+          <input type="email" name="email" placeholder="メールアドレス" required>
+          <textarea name="message" rows="4" placeholder="メッセージ" required></textarea>
+          <button type="submit">送信する</button>
+        </form>
+      </div>
+      <div>
+        <h5>Links</h5>
+        <div class="social-list">
+          <a href="#">Pixiv</a>
+          <a href="#">Bluesky</a>
+          <a href="#">Kakuyomu</a>
+          <a href="#">YouTube — リリポピ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 砂上譜 SAJOUFU — Azalea Creative Room</span>
+      <span>本サイトの文章・図版は生成AIの学習利用を禁じます。 / No AI training on this content.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
